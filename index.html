@@ -10,16 +10,16 @@
 
   <style>
     :root {
-      --bg:         #0a0a0a;
-      --surface:    #111111;
-      --surface2:   #161616;
-      --border:     rgba(255,255,255,0.07);
-      --accent:     #c8f55a;
-      --accent2:    #4fffb0;
+      --bg:         #f8f7f4;
+      --surface:    #eeede9;
+      --surface2:   #e5e3de;
+      --border:     rgba(0,0,0,0.1);
+      --accent:     #7ab800;
+      --accent2:    #00c97a;
       --accent3:    #ffd166;
-      --text:       #f0ede8;
-      --muted:      #6b6b6b;
-      --muted2:     #9a9a9a;
+      --text:       #1a1918;
+      --muted:      #888580;
+      --muted2:     #555250;
       --font-disp:  'Bebas Neue', sans-serif;
       --font-head:  'Syne', sans-serif;
       --font-body:  'DM Sans', sans-serif;
@@ -36,30 +36,6 @@
       font-weight: 300;
       line-height: 1.7;
       overflow-x: hidden;
-      cursor: none;
-    }
-
-      /* ── CUSTOM CURSOR ── */
-    #cursor {
-      width: 10px; height: 10px;
-      background: var(--accent);
-      border-radius: 50%;
-      position: fixed; top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9999;
-      transform: translate(-50%,-50%);
-      transition: transform 0.1s ease;
-      mix-blend-mode: exclusion;
-    }
-    #cursor-ring {
-      width: 36px; height: 36px;
-      border: 1.5px solid rgba(200,245,90,0.4);
-      border-radius: 50%;
-      position: fixed; top: 0; left: 0;
-      pointer-events: none;
-      z-index: 9998;
-      transform: translate(-50%,-50%);
-      transition: transform 0.18s ease, width 0.3s, height 0.3s, opacity 0.3s;
     }
 
     /* ── NOISE OVERLAY ── */
@@ -69,7 +45,7 @@
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
       pointer-events: none;
       z-index: 9990;
-      opacity: 0.35;
+      opacity: 0.08;
     }
 
     /* ── NAV ── */
@@ -79,7 +55,7 @@
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.5rem 4rem;
       backdrop-filter: blur(20px);
-      background: rgba(10,10,10,0.7);
+      background: rgba(248,247,244,0.92);
       border-bottom: 1px solid var(--border);
       transition: padding 0.4s;
     }
@@ -125,7 +101,7 @@
       font-family: var(--font-disp);
       font-size: clamp(8rem, 22vw, 20rem);
       color: transparent;
-      -webkit-text-stroke: 1px rgba(255,255,255,0.04);
+      -webkit-text-stroke: 1px rgba(0,0,0,0.06);
       pointer-events: none;
       user-select: none;
       line-height: 1;
@@ -135,8 +111,8 @@
     .hero-left { position: relative; z-index: 1; }
     .hero-tag {
       display: inline-flex; align-items: center; gap: 0.5rem;
-      background: rgba(200,245,90,0.08);
-      border: 1px solid rgba(200,245,90,0.2);
+      background: rgba(122,184,0,0.1);
+      border: 1px solid rgba(122,184,0,0.25);
       border-radius: 100px;
       padding: 0.35rem 0.9rem;
       font-family: var(--font-head);
@@ -239,7 +215,7 @@
       position: absolute;
       bottom: -24px; right: -24px;
       width: 80%; height: 80%;
-      border: 1px solid rgba(200,245,90,0.15);
+      border: 1px solid rgba(100,140,0,0.2);
       border-radius: 12px;
       z-index: -2;
     }
@@ -377,7 +353,7 @@
       margin-top: 3rem;
       padding: 2rem;
       border-left: 3px solid var(--accent);
-      background: rgba(200,245,90,0.03);
+      background: rgba(122,184,0,0.06);
       border-radius: 0 8px 8px 0;
     }
     .story-quote p {
@@ -433,7 +409,7 @@
     .venture-year {
       font-family: var(--font-disp);
       font-size: 2.8rem;
-      color: rgba(200,245,90,0.12);
+      color: rgba(100,140,0,0.18);
       line-height: 1;
       margin-bottom: 1rem;
     }
@@ -461,7 +437,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
     }
-    .status-active { background: rgba(79,255,176,0.1); color: var(--accent2); border: 1px solid rgba(79,255,176,0.2); }
+    .status-active { background: rgba(0,201,122,0.1); color: var(--accent2); border: 1px solid rgba(0,201,122,0.25); }
     .status-past   { background: rgba(255,255,255,0.04); color: var(--muted); border: 1px solid var(--border); }
 
     /* ── BELIEFS ── */
@@ -494,7 +470,7 @@
     .belief-item:hover { border-color: rgba(200,245,90,0.25); transform: translateX(6px); }
     .belief-icon {
       width: 40px; height: 40px; flex-shrink: 0;
-      background: rgba(200,245,90,0.08);
+      background: rgba(122,184,0,0.12);
       border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.1rem;
@@ -520,7 +496,7 @@
       display: flex; flex-direction: column; justify-content: flex-end;
       transition: transform 0.4s, box-shadow 0.4s;
     }
-    .project-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.5); }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 24px 60px rgba(0,0,0,0.15); }
     .project-card img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
@@ -575,7 +551,7 @@
     .connect-glow {
       position: absolute;
       width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(200,245,90,0.06) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(122,184,0,0.08) 0%, transparent 70%);
       top: 50%; left: 50%;
       transform: translate(-50%,-50%);
       pointer-events: none;
@@ -606,7 +582,7 @@
       border-color: var(--accent);
       color: var(--accent);
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(200,245,90,0.1);
+      box-shadow: 0 8px 24px rgba(100,140,0,0.15);
     }
     .email-link {
       font-family: var(--font-disp);
@@ -667,10 +643,6 @@
   </style>
 </head>
 <body>
-
-  <!-- Custom Cursor -->
-  <div id="cursor"></div>
-  <div id="cursor-ring"></div>
 
   <!-- NAV -->
   <nav id="navbar">
@@ -992,41 +964,6 @@
   </footer>
 
   <script>
-    // ── CUSTOM CURSOR ──
-    const cursor     = document.getElementById('cursor');
-    const cursorRing = document.getElementById('cursor-ring');
-    let mx = 0, my = 0, rx = 0, ry = 0;
-
-    document.addEventListener('mousemove', e => {
-      mx = e.clientX; my = e.clientY;
-      cursor.style.left = mx + 'px';
-      cursor.style.top  = my + 'px';
-    });
-
-    const lerp = (a, b, t) => a + (b - a) * t;
-    (function animRing() {
-      rx = lerp(rx, mx, 0.12);
-      ry = lerp(ry, my, 0.12);
-      cursorRing.style.left = rx + 'px';
-      cursorRing.style.top  = ry + 'px';
-      requestAnimationFrame(animRing);
-    })();
-
-    document.querySelectorAll('a, button, .venture-card, .belief-item, .project-card').forEach(el => {
-      el.addEventListener('mouseenter', () => {
-        cursorRing.style.width  = '60px';
-        cursorRing.style.height = '60px';
-        cursorRing.style.borderColor = 'rgba(200,245,90,0.7)';
-        cursor.style.transform = 'translate(-50%,-50%) scale(2)';
-      });
-      el.addEventListener('mouseleave', () => {
-        cursorRing.style.width  = '36px';
-        cursorRing.style.height = '36px';
-        cursorRing.style.borderColor = 'rgba(200,245,90,0.4)';
-        cursor.style.transform = 'translate(-50%,-50%) scale(1)';
-      });
-    });
-
     // ── NAV SCROLL ──
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
